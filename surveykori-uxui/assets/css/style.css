@@ -1,0 +1,62 @@
+:root {
+    --primary: #0A3D91;
+    --secondary: #1565D8;
+    --dark: #1D2939;
+    --text: #344054;
+    --muted: #667085;
+    --border: #E4E7EC;
+    --bg: #F5F7FA;
+    --white: #FFFFFF;
+    --success: #12B76A;
+    --warning: #F79009;
+    --danger: #F04438;
+    --radius: 8px;
+
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+body{
+    margin 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "inter", "segoe UI", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+}
+
+h1, h2, h3, h4 {
+
+    font-family: "Poppins", "segoe UI", arial, sans-serif;
+    color: var(--dark);
+    margin: 0 0 10px;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 26px;
+}
+
+h2{
+    font-size: 21px;
+}
+h3{
+    font-size: 17px;
+}
+
+a {
+    color: var(--secondary);
+    text-decoration: none;
+
+}
+a:hover {
+    text-decoration: underline;
+}
+p{
+    margin: 0 0 10px;
+
+
+}
