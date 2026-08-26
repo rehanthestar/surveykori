@@ -20,7 +20,7 @@
 }
 
 body{
-    margin 0;
+    margin: 0;
     background: var(--bg);
     color: var(--text);
     font-family: "inter", "segoe UI", Arial, sans-serif;
@@ -59,4 +59,62 @@ p{
     margin: 0 0 10px;
 
 
+}
+
+
+/* Global CSS END*/
+
+/* Nav Start */
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 20px;
+}
+
+.navbar-left, .nevbar-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+}
+
+.brand{
+    font-family: "poppins" arial, sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--primary);
+}
+
+.brand span {
+
+    color: var(--secondary);
+}
+
+.nav-link {
+    color: var(--text);
+    position: relative;
+}
+
+.nav-user{
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.dot {
+    background: var(--danger);
+    color: #fff;
+    border-radius: 10x;
+    font-size: 11px;
+    padding: 1px 6px;
+    margin-left: 3px;
+}
+
+.layout {
+    display: flex;
+    min-height: calc(100vh - 110vh);
+    align-items: stretch;
 }
