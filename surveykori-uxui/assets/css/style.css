@@ -170,3 +170,15 @@ p{
     border-bottom: 1px solid var(--border);
 }
 
+.public-wrap{
+    max-width: 1050px;
+    margin: 0 auto; 
+    padding: 30px 20px;
+}
+
+.hero {
+    text-align: center;
+    padding: 55px 20px ;
+
+}
+
