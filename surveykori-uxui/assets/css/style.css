@@ -151,3 +151,24 @@ p{
     padding: 22px;
     max-width: 1150px;
 }
+
+.footer {
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 12px;
+    color: var(--muted);
+    font-size: 13px;
+
+}
+.public-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--white);
+    padding: 14px 30px;
+    border-bottom: 1px solid var(--border);
+}
+
+.public-nav
+tyctfhfh
