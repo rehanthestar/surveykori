@@ -86,3 +86,12 @@ label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; c
 }
 .notif-card.unread {border-left-color: var(--secondary); background: #F8FBFF;}
 
+.table-wrap {overflow-x: auto;}
+table.table {width: 100%; border-collapse: collapse; background: #fff;}
+table.table th, table.table td {
+    text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); font-size: 14px;
+}
+table.table th {background: var(--bg); color: var(--dark); font-weight: 600;}
+table.table tr:last-child td {border-bottom: none;}
+
+
