@@ -49,6 +49,29 @@
         </div>
         </main>
     </div>
+
+    <form class="builder" onsubmit="return false">
+        <input type="hidden" name="questions_json" id="questionsJson">
+        <input type="hidden" name="builder_action" id="builderAction" value="draft">
+        <div class="card">
+            <h3>Add Question</h3>
+            <button type="button" class="btn btn-outline btn-block" style="margin-bottom:6px" onclick="addQuestion('short_answer')">+  Short Answer</button>
+            <button type="button" class="btn btn-outline btn-block" style="margin-bottom:6px" onclick="addQuestion('paragraph')">+  Paragraph</button>
+            <button type="button" class="btn btn-outline btn-block" style="margin-bottom:6px" onclick="addQuestion('multiple_choice')">+  Multiple Choice</button>
+            <button type="button" class="btn btn-outline btn-block" style="margin-bottom:6px" onclick="addQuestion('checkbox')">+  Checkbox</button>
+            <button type="button" class="btn btn-outline btn-block" style="margin-bottom:6px" onclick="addQuestion('rating')">+  Rating</button>
+            <p class="help-text">Question: <strong id="questionCount">0</strong></p>
+        </div>
+
+        <div>
+            <div id="questionList"></div>
+            <div class="row">
+                <button  class="btn btn-primary" type="submit" onclick="return beforeSave('draft')">Save Draft</button>
+                <button  class="btn btn-secondary" type="submit" onclick="return beforeSave('preview')">Preview</button>
+                <button  class="btn btn-primary" type="submit" onclick="return beforeSave('publish')">Publish</button>
+            </div>
+        </div>
+    </form>
 </body>
 
 
