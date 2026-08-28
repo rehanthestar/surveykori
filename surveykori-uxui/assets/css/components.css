@@ -69,4 +69,20 @@ label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; c
     flex-direction: column;
     gap: 8px;
 }
-.survey-card h3
+.survey-card h3 {margin: 0;}
+.survey-meta {font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 12px;}
+
+.notif-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+}
+.notif-card.unread {border-left-color: var(--secondary); background: #F8FBFF;}
+
