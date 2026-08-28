@@ -123,5 +123,16 @@ table.table tr:last-child td {border-bottom: none;}
 .chart-bar {background: var(--border); border-radius: 4px; height: 16px; overflow: hidden;}
 .chart-bar>span {display: block; height: 100%; background: var(--primary);}
 
+.modal {
+    display: none; position: fixed; insert: 0;
+    background: rgba(29, 41, 57, 0.45); z-index: 50;
+    align-items: center; justify-content: center; 
+}
+.modal.open {display: flex;}
+.modal-box {
+    background: #fff; border-radius: var(--radius); padding: 22px;
+    width: 100%; max-width: 420px;
+}
+.modal-actions {display: flex; gap: 10px; justify-content: flex-end; margin-top: 16px;}
 
 
