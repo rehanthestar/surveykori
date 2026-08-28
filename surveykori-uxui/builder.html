@@ -47,8 +47,8 @@
             </div>
             <a class="btn btn-outline btn-sm" href="edit.html">Edit Settings</a>
         </div>
-        </main>
-    </div>
+       
+    
 
     <form class="builder" onsubmit="return false">
         <input type="hidden" name="questions_json" id="questionsJson">
@@ -72,7 +72,32 @@
             </div>
         </div>
     </form>
+
+    <div class="modal" id="confirmModal">
+        <div class="modal-box">
+            <h3>Please confirm</h3>
+            <p class="modal-actions"></p>
+            <div class="modal-actions">
+                <button type="button" class="btn modal-no">Cancel</button>
+                <button type="button" class="btn btn-danger modal-yes">Yes</button>
+            </div>
+        </div>
+    </div>
+
+        <script>
+            window.existingQuestion = [
+                {"question_text": "How many hours do you study every day?", "question_type": "short_answer", "is_required": 1, "option": []},
+                {"question_text": "Where do you usually study?", "question_type": "multiple_choice", "is_required": 1, "option": ["Home", "Library", "Campus", "Other"]},
+                {"question_text": "Rate your current study routine.", "question_type": "rating", "is_required": 1, "option": []}
+               
+            ];
+        </script>
+        </main>
+        </div>
+        <footer class="footer">
+            <p>Survey Kori &mdash; University Web Technology Project</p>
+        </footer>
+        <script src="../assets/js/app.js"></script>
+        <script src="../assets/js/survey-builder.js"></script>
 </body>
-
-
 </html>
