@@ -135,4 +135,17 @@ table.table tr:last-child td {border-bottom: none;}
 }
 .modal-actions {display: flex; gap: 10px; justify-content: flex-end; margin-top: 16px;}
 
+.builder { display: grid; grid-template-columns: 200px 1fr; gap: 16px; align-items: start; }
+.q-card{
+    background: #fff; border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 14px; margin-bottom: 12px;
+}
+.q-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.q-type { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .4px; }
+.q-actions { display: flex; gap: 14px; }
+.option-row { display: flex; gap: 8px; margin-bottom: 6px; }
+
+
+
+
 
