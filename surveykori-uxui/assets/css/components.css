@@ -115,4 +115,13 @@ table.table tr:last-child td {border-bottom: none;}
 .alert-error {background: #FEF3F2; border-color: #FECDCA; color: #B42318;}
 .alert-info {background: #EFF8FF; border-color: #B2DDFF; color: #175CD3;}
 
+.progress {background: var(--border); border-radius: 20px; height: 10px; overflow: hidden;}
+.progress>span {display: block; height: 100%; background: var(--secondary);}
+
+.chart-row {margin-bottom: 8px;}
+.chart-label {display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 3px;}
+.chart-bar {background: var(--border); border-radius: 4px; height: 16px; overflow: hidden;}
+.chart-bar>span {display: block; height: 100%; background: var(--primary);}
+
+
 
