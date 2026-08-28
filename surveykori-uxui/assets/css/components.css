@@ -1,0 +1,40 @@
+.btn{
+    display: inline-block;
+    padding: 9px 16px;
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    background: var(--border);
+    color: var(--text);
+}
+.btn:hover { text-decoration: none; opacity: 0.92;}
+.btn-primary { background: var(--primary); color: #fff;}
+.btn-secondary { background: var(--secondary); color:#fff;}
+.btn-success { background: var(--success); color: #fff;}
+.btn-danger { background: var(--darger); color: #fff;}
+.btn-outline { background: #fff; color: var(--primary); border-color: var(--primary);}
+.btn-sm { padding: 6px 11px; font-size: 13px; }
+.btn-block { display: block; width: 100%; }
+.btn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.form-group { margin-bottom: 14px; }
+label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; color: var(--dark); }
+.input, .textarea, .select{
+    width: 100%;
+    padding: 9px 11px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-family: inherit;
+    background: #fff;
+    color: var(--text);
+}
+.input:focus, .textarea:focus, .select:focus { outline: none; border-color: var(--secondary); }
+.textarea { min-height: 90px; resize: vertical; }
+.help-text { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.error-text { font-size: 13px; color: var(--danger); margin-top: 4px; }
+.check-line { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; font-weight: 400; }
+.check-line input { width: auto; }
+
