@@ -146,6 +146,7 @@ table.table tr:last-child td {border-bottom: none;}
 .option-row { display: flex; gap: 8px; margin-bottom: 6px; }
 
 
-
+.rating-group { display: flex; gap: 14px; }
+.rating-group label { font-weight: 400;}
 
 
