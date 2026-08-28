@@ -31,7 +31,39 @@
                     <a class="side-link" href="../index.html">Logout</a>
                 </nav>
             </aside>
-            
+            <main class="content">
+                <h1>Edit Survey Information</h1>
+
+                <div class="card" style="max-width:660px">
+                    <form action="builder.html">
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input class="input" type="text" name="title" value="Studnet Study Habits 2026" required>
+                
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="textarea" name="description" required>A short survey about the daily habits of university students.</textarea>
+
+                        </div>
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select class="select" name="category">
+                                <option value="Education" selected>Education</option>
+                                <option value="Health">Health</option>
+                                <option value="Technology">Technology</option>
+                                <option value="Business">Business</option>
+                                <option value="Social">Social</option>
+                                <option value="Environment">Environment</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="grid-2">
+                            
+                        </div>
+                    </form>
+                </div>
+            </main>
         </div>
     </body>
 </html>
