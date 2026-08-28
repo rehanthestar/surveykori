@@ -60,12 +60,29 @@
                         </select>
                     </div>
                     <div class="grid-2">
-                        
+                        <div class="form-group">
+                            <label>Required Responses</label>
+                            <input class="input" type="number" min="1" name="required_responses" value="10" required>
+                        </div>
+                        <div class="form-group">
+                            <lable>Reward Points Per Response</lable>
+                            <input class="input" type="number" min="1" name="reward_per_response" value="5" required>
+                        </div>
                     </div>
+                    <div class="form-group">
+                        <label>Deadline</label>
+                        <input class="input" type="date" name="deadline" required>
+                    </div>
+                    <p class="help-text">Total cost = required responses &times; reward per response.
+                        The points are locked only when you publish the survey.</p>
+                    <button class="btn btn-primary" type="submit">Save &amp; Add Questions</button>
                 </form>
             </div>
         </main>
     </div>
-    
+    <footer class="footer">
+        <p>Survey Kori &mdash; University Web Technology Project</p>
+    </footer>
+    <script src="../assets/js/script.js"></script>   
 </body>
 </html>
