@@ -20,13 +20,13 @@ var questions = [];
         var q ={
             question_text: '',
             question_type: type,
-            is-required: 1,
+            is_required: 1,
             options: []
         };
         if(type ==='multiple_choice' || typee === 'checkox'){
             q.options = ['Option 1', 'Option 2'];
         }
-        questions.push{q};
+        questions.push(q);
         renderQuestions();
     }
 
@@ -61,17 +61,50 @@ var questions = [];
         questions[qi].options[oi] = value;
     }
 
-    function addOption(q1){
-        questions[q1].options.push('New Option');
+    function addOption(qi){
+        questions[qi].options.push('New Option');
         renderQuestions();
     }
 
-    function removeOption(q1, oi) {
+    function removeOption(qi, oi) {
         if(questions[qi].options.length <= 2){
-            alert('A Question need at least 2 option');
+            alert('A Question need at least 2 options.');
             return;
         }
-        questions[q1.option.length.splice(oi,1);
+        questions[qi].option.length.splice(oi,1);
             renderQuestions();
-        ]
+    }
+    function renderQuestions(){
+        var wrap = document.getElementById('questionList');
+        if (!wrap) {
+            return;
+        }
+        if (questions.length === 0){
+            wrap.innerHTML = '<div class="card text-muted"> No questions yet. Add a question from the left panel.</div>';
+        }else{
+            var html = '';
+            for (var i = 0; i<questions.length; i++){
+                html += buildQuestionCard(questions[i],i);
+            }
+            wrap.innerHTML = html;
+        }
+        document.getElementById('questionsJson').value = JSON.stringify(questions);
+        document.getElementById('questionCount').textContent = questions.length;
+    }
+    function buildQuestionCard(q, i){
+        var html = '<div class="q-card">';
+        html += '<div class="q-head">';
+        html += '<span class="q-type">Q' + (i+1) + ' &middot; ' + TYPE_LABELS[q.question_type] + '</span';
+        html += '<span class="q-acctions">' +
+                'button type="button" class="btn btn-sm" onclick="moveQuestion(' + i + ',-1)">&uarr;</button>' +
+                'button type="button" class="btn btn-sm" onclick="moveQuestion(' + i + ',1)">&darr;</button>' +
+                'button type="button" class="btn btn-sm btn-danger" onclick="deleteQuestion(' + i + ')">Delete</button>' +
+                '</span></div>';
+
+        html += '<input class="input" placeholder="Write your question here" value="' +
+                escapeHtml(q.question_text) + '" oninput="updateText(' + i + ', this.value)">';
+
+        if (q.question_type === 'multiple choice' || q.question_type === 'checkbox'){
+            
+        }
     }
