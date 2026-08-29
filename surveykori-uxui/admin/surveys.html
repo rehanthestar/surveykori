@@ -35,5 +35,40 @@
             </nav>
         </aside>
         <main class="content">
+        <h1>Manage Surveys</h1>
+        <div class="row mb">
+            <a class="btn btn-sm btn-primary" href="surveys.html">Pending</a>
+            <a class="btn btn-sm btn-outline" href="surveys.html">Active</a>
+            <a class="btn btn-sm btn-outline" href="surveys.html">Completed</a>
+            <a class="btn btn-sm btn-outline" href="surveys.html">Rejected</a>
+            <a class="btn btn-sm btn-outline" href="surveys.html">Closed</a>
+            <a class="btn btn-sm btn-outline" href="surveys.html">Draft</a>
+            <a class="btn btn-sm btn-outline" href="surveys.html">All</a>
+        </div>
+        <div class="card">
+            <div class="row space-between">
+                <h3>Campus Food Quality</h3>
+                <span class="badge badge-pending">Pending</span>
+            </div>
+            <p class="small text-muted">
+                By Rahim Uddin (rahim@student.com) &middot;
+                Health &middot;
+                5 questions &middot;
+                4 pts &times; 15 responses
+                = 60 pts locked
+            </p>
+            <p>A survey about the food quality and price at the university canteen.</p>
+            <div class="row">
+                <a class="btn btn-sm btn-outline" href="../survey/preview.html">Preview questions</a>
+                <form style="display: inline">
+                    <button class="btn btn-sm btn-success" type="button" data-confirm="Approve this survey?">Approve</button>
+                </form>
+                <form class="row" style="display:inline-flex">
+                    <input class="input input-sm" type="text" placeholder="Rejection reason" maxlength="255">
+                    <button class="btn btn-sm btn-danger" type="button">Reject</button>
+                </form>
+            </div>
+        </div>
+        <div 
 </body>
 </html>
