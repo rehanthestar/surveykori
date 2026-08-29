@@ -38,3 +38,28 @@ function prevQuestion(){
         showQuestion(currentQuestion - 1);
     }
 }
+
+function validateQuestion(index) {
+    var card = questionCards[index];
+    if(card.getAttribute('data-required') !== '1') { return true; }
+
+    var inputs = card.querySelectorAll('input, textarea');
+    var answered = false;
+
+    for (var i = 0; i < inputs.length; i++) {
+        var el = inputs[i];
+        if (el.type === 'radio' || el.type === 'checkbox') {
+            if(el.checked) { answered = true; }
+        } else if (el.value.trim() !== '') {
+            answered = true;
+        }
+    }
+
+    var error = card.querySelectorAll('.error-text');
+    if(!answered){
+        error.textContent = 'This question is required.';
+        return false;
+    }
+    error.textContent = '';
+    return true;
+}
