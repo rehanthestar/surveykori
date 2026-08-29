@@ -39,7 +39,27 @@
         <p class="text-muted">Answer surveys made by other students and researchers to earn points.</p>
 
         <div class="card">
-            
+            <form>
+                <div class="row">
+                    <input class="input" style="max-width:260px" type="text" name="search" placeholder="Search title or description">
+                    <select class="select" style="max-width:180px" name="category">
+                        <option value="">All categories</option>
+                        <option value="Education">Education</option>
+                        <option value="Health">Health</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Business">Business</option>
+                        <option value="Social">Social</option>
+                        <option value="Environment">Environment</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <select class="select" style="max-width:180px" name="sort">
+                        <option value="newest">Newest first</option>
+                        <option value="reward">Highest reward</option>
+                    </select>
+                    <button class="btn btn-primary" type="button">Apply</button>
+                    <a class="btn btn-outline" href="find.html">Reset</a>
+                </div>
+            </form>
         </div>
 </body>
 </html>
