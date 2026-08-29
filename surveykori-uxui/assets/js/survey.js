@@ -32,3 +32,9 @@ function nextQuestion() {
         showQuestion(currentQuestion + 1);
      }
 }
+
+function prevQuestion(){
+    if (currentQuestion > 0) {
+        showQuestion(currentQuestion - 1);
+    }
+}
