@@ -135,4 +135,14 @@ var questions = [];
             .replace(/>/g, '&gt;');
     }
 
-    
+    function beforeSave(action) {
+        for (var i = 0; i<questions.length; i++) {
+            if (questions[i].question_text.trim() === ''){
+                alert('Question ' + (i + 1) + ' has no text.');
+                return false;
+            }
+        }
+        document.getElementById('builderAction').value = action;
+        document.getElementById('questionsJson').value = JSON.stringify(questions);
+        return true;
+    }
