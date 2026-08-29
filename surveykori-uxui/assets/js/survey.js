@@ -63,3 +63,14 @@ function validateQuestion(index) {
     error.textContent = '';
     return true;
 }
+
+function validateSurvey(){
+    for (var i=0; i<questionCards.length; i++)
+    {
+        if (!validateQuestion(i)) {
+            showQuestion(i);
+            return false;
+        }
+    }
+    return true;
+}
