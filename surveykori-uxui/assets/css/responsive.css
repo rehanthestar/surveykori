@@ -1,0 +1,23 @@
+@media (max-width: 100px) {
+    .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .builder { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+    .menu-btn {display: block; }
+    .sidebar {
+        display: none;
+        position: absolute;
+        top: 56px;
+        left: 0;
+        width: 200px;
+        z-index: 20;
+        height: auto;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+    }
+    .sidebar.open { display: block; }
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    .content { padding: 16px; }
+    .nav-user { display: none; }
+    .hero h1 { front-size: 26px; }
+    table.table th, table.table td { padding: 8px; font-size: 13px; }
+}
