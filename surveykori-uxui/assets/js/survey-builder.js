@@ -105,6 +105,34 @@ var questions = [];
                 escapeHtml(q.question_text) + '" oninput="updateText(' + i + ', this.value)">';
 
         if (q.question_type === 'multiple choice' || q.question_type === 'checkbox'){
-            
+            html += '<div style="margin-top:10px">';
+            for (var o = 0; o<q.options.length; o++) {
+                html += '<div class="option-row">' +
+                        '<input class="input" value="' +escapeHtml(q.options[o]) +
+                        '" oninput="updateOption(' + i + ',' + o + ', this.value)">' +
+                        '<button type="button" class="btn btn-sm" onclick="removeOption(' + i + ',' + o + ')">&times;</button' +
+                        '</div>';
+            }
+            html += '<button type="button" class="btn btn-sm btn-outline" onclick="addOption(' + i + ')">+ Add option</button></div>';
         }
+        if (q.question_type === 'rating'){
+            html += '<p class="help-text">Respondents will choose a rating from 1 to 5.</p>';
+        }
+
+        html += '<label class="check-line" style="margin-top:10px">' +
+                '<input type="checkbox" ' + (q.is_required ? 'checked' : '') +
+                'onchange="updateRequired(' + i + ', this.checked)">Required question</label>';
+
+        html += '</div';
+        return html;
     }
+
+    function escapeHtml(text) {
+        return String(text)
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+    }
+
+    
