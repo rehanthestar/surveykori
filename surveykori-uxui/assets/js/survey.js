@@ -25,3 +25,10 @@ function showQuestion(index){
     document.getElementById('submitBtn').style.display = last ?  "inline-block" : 'none';
 
 }
+
+function nextQuestion() {
+    if (!validateQuestion(currentQuestion)) { return; }
+    if (currentQuestion < questionCards.length - 1) { 
+        showQuestion(currentQuestion + 1);
+     }
+}
