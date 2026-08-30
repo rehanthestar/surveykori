@@ -151,8 +151,16 @@ label {
     flex-direction: column;
     gap: 8px;
 }
-.survey-card h3 {margin: 0;}
-.survey-meta {font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 12px;}
+.survey-card h3 {
+    margin: 0;
+}
+.survey-meta {
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
 
 .notif-card {
     background: var(--white);
@@ -166,15 +174,37 @@ label {
     gap: 10px;
     align-items: center;
 }
-.notif-card.unread {border-left-color: var(--secondary); background: #F8FBFF;}
-
-.table-wrap {overflow-x: auto;}
-table.table {width: 100%; border-collapse: collapse; background: #fff;}
-table.table th, table.table td {
-    text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); font-size: 14px;
+.notif-card.unread {
+    border-left-color: var(--secondary);
+    background: #F8FBFF;
 }
-table.table th {background: var(--bg); color: var(--dark); font-weight: 600;}
-table.table tr:last-child td {border-bottom: none;}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table.table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+table.table th, table.table td
+{
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+}
+
+table.table th {
+    background: var(--bg);
+    color: var(--dark);
+    font-weight: 600;
+}
+table.table tr:last-child td {
+    border-bottom: none;
+}
 
 .badge {
     display: inline-block; padding: 2px 10px; border-radius: 20px;
