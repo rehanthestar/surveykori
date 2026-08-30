@@ -70,12 +70,34 @@ label {
     color: var(--text);
 }
 
-.input:focus, .textarea:focus, .select:focus { outline: none; border-color: var(--secondary); }
-.textarea { min-height: 90px; resize: vertical; }
-.help-text { font-size: 12px; color: var(--muted); margin-top: 4px; }
-.error-text { font-size: 13px; color: var(--danger); margin-top: 4px; }
-.check-line { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; font-weight: 400; }
-.check-line input { width: auto; }
+.input:focus, .textarea:focus, .select:focus { 
+    outline: none;
+    border-color: var(--secondary);
+ }
+.textarea { 
+    min-height: 90px;
+    resize: vertical;
+ }
+.help-text {
+     font-size: 12px;
+     color: var(--muted);
+     margin-top: 4px;
+ }
+.error-text {
+     font-size: 13px;
+     color: var(--danger);
+     margin-top: 4px;
+}
+.check-line {
+     display: flex;
+     align-items: center;
+     gap: 8px;
+     margin-bottom: 6px;
+     font-weight: 400; 
+}
+.check-line input {
+     width: auto;
+}
 
 .card {
     background: var(--white);
@@ -84,7 +106,13 @@ label {
     padding: 18px;
     margin-bottom: 16px;
 }
-.card-title {display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;}
+
+.card-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
 
 .stat-card{
     background: var(--white);
@@ -93,6 +121,7 @@ label {
     border-radius: var(--radius);
     padding: 16px;
 }
+
 .stat-card.label {color: var(--muted); font-size: 13px;}
 .stat-card.value {font-size: 26px; font-weight: 700; color: var(--dark); font-family: "Poppins", Arial, sans-serif;}
 .stat-card.green {border-left-color: var(--success);}
