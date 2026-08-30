@@ -39,3 +39,34 @@
 <h1>Manage Users</h1>
 
 <form class="card row">
+     <input class="input" type="text" name="q" placeholder="Search name, email or university">
+    <button class="btn btn-primary" type="button">Search</button>
+</form>
+
+<div class="card table-wrap">
+<table class="table">
+    <tr>
+        <th>Name</th><th>Email</th><th>University</th>
+        <th>Available</th><th>Earned</th><th>Spent</th><th>Status</th><th>Actions</th>
+    </tr>
+        <tr>
+            <td>Sadia Islam</td>
+            <td class="small">sadia@student.com</td>
+            <td class="small">BUET</td>
+            <td>60</td>
+            <td>60</td>
+            <td>0</td>
+            <td>
+                <span class="badge badge-active">Active</span>
+            </td>
+            <td>
+                <div class="row">
+                    <form style="display:inline"><button class="btn btn-sm btn-danger" type="button" data-confirm="Block this user?">Block</button></form>
+                    <form class="row" style="display:inline-flex">
+                        <input class="input input-sm" type="number" min="1" max="1000" placeholder="Pts" style="width:80px">
+                        <button class="btn btn-sm btn-outline" type="button">Give</button>
+                    </form>
+                </div>
+            </td>
+        </tr>
+        <tr>
