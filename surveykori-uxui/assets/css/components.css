@@ -10,7 +10,10 @@
     background: var(--border);
     color: var(--text);
 }
-.btn:hover { text-decoration: none; opacity: 0.92;}
+.btn:hover { 
+    text-decoration: none; 
+    opacity: 0.92;
+}
 .btn-primary { background: var(--primary); color: #fff;}
 .btn-secondary { background: var(--secondary); color:#fff;}
 .btn-success { background: var(--success); color: #fff;}
