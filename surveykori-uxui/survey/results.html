@@ -1,44 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Survey Builder | Survey Kori</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/components.css">
-    <link rel="stylesheet" href="../assets/css/reponsive.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Survey Results | Survey Kori</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+<link rel="stylesheet" href="../assets/css/responsive.css">
 </head>
 <body>
-     <header class="navbar">
-        <div class=""navbar-left>
-            <button class="menu-btn" onclick="toggleSidebar()"></button>
-            <a class="brand" href="../dashboard.html">Survey<span>Kori</span></a>
-        </div>
-         <div class="navbar-right">
-            <a class="nav-link" href="../notifications.html">Notifications <span class="dot">3</span></a>
-            <span class="nav-user">Rahim Uddin</span>               
-            <a class="btn btn-outline btn-sm" href="../index.html">Logout</a>
-        </div>
-     
-    </header>
-        <div class="layout">
-        <aside class="sidebar" id="sidebar">
-            <nav>
-                <a class="side-link" href="../dashboad.html">Dashboard</a>
-                <a class="side-link" href="../survey/find.html">Find Survey</a>
-                <a class="side-link" href="../survey/my-survey.html">My Survey</a>
-                <a class="side-link" href="../survey.create.html">Create Survey</a>
-                <a class="side-link" href="../points/index.html">Point create</a>
-                <a class="side-link" href="../notifications.html">Notifications</a>
-                <a class="side-link" href="../profile.html">Profile</a>
-                <a class="side-link" href="../admin/index.html">Admin Panel</a>
-                <a class="side-link" href="../index.html">Logout</a>
-            </nav>
-        </aside>
-        <main class="content">
-        <div class="row space-between">
-            
+<header class="navbar">
+    <div class="navbar-left">
+        <button class="menu-btn" onclick="toggleSidebar()">&#9776;</button>
+        <a class="brand" href="../dashboard.html">Survey<span>Kori</span></a>
+    </div>
+    <div class="navbar-right">
+        <a class="nav-link" href="../notifications.html">Notifications <span class="dot">3</span></a>
+        <span class="nav-user">Rahim Uddin</span>
+        <a class="btn btn-outline btn-sm" href="../index.html">Logout</a>
+    </div>
+</header>
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+    <nav>
+        <a class="side-link " href="../dashboard.html">Dashboard</a>
+        <a class="side-link " href="../survey/find.html">Find Surveys</a>
+        <a class="side-link is-active" href="../survey/my-surveys.html">My Surveys</a>
+        <a class="side-link " href="../survey/create.html">Create Survey</a>
+        <a class="side-link " href="../points/index.html">Point Center</a>
+        <a class="side-link " href="../notifications.html">Notifications</a>
+        <a class="side-link " href="../profile.html">Profile</a>
+        <a class="side-link" href="../admin/index.html">Admin Panel</a>
+        <a class="side-link" href="../index.html">Logout</a>
+    </nav>
+</aside>
+<main class="content">
 
-    
-</body>
-</html>
+<div class="row space-between">
+    <h1>Student Study Habits 2026</h1>
+    <a class="btn btn-outline btn-sm" href="#">Export CSV</a>
+</div>
+
+<div class="card">
+    <div class="row space-between">
+        <strong>12 / 20 Responses</strong>
+        <span>60%</span>
+    </div>
+    <div class="progress mt"><span style="width:60%"></span></div>
+    <p class="small text-muted mt">
+        Status: <span class="badge badge-active">Active</span> &middot;
+        Created: 12 Aug 2026 &middot;
+        Deadline: 30 Sep 2026
+    </p>
+</div>
