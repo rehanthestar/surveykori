@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1">
+    <title>Survey Builder | Survey Kori</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/reponsive.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class=""navbar-left>
+            <button class="menu-btn" onclick="toggleSidebar()"></button>
+            <a class="brand" href="../dashboard.html">Survey<span>Kori</span></a>
+        </div>
+         <div class="navbar-right">
+            <a class="nav-link" href="../notifications.html">Notifications <span class="dot">3</span></a>
+            <span class="nav-user">Rahim Uddin</span>               
+            <a class="btn btn-outline btn-sm" href="../index.html">Logout</a>
+        </div>
+     
+    </header>
+    <div class="layout">
+        <aside class="sidebar" id="sidebar">
+            <nav>
+                <a class="side-link" href="../dashboad.html">Dashboard</a>
+                <a class="side-link" href="../survey/find.html">Find Survey</a>
+                <a class="side-link" href="../survey/my-survey.html">My Survey</a>
+                <a class="side-link" href="../survey.create.html">Create Survey</a>
+                <a class="side-link" href="../points/index.html">Point create</a>
+                <a class="side-link" href="../notifications.html">Notifications</a>
+                <a class="side-link" href="../profile.html">Profile</a>
+                <a class="side-link" href="../admin/index.html">Admin Panel</a>
+                <a class="side-link" href="../index.html">Logout</a>
+            </nav>
+        </aside>
+        <main class="content">
+        <div class="row space-between">
+            <div>
+                <h1>Student Study Habits 2026</h1>
+                <p class="text-muted small">
+                    <span class="badge badge-draft">Draft</span>
+                    <span class="badge badge-cat">Education</span>
+                    Cost: 100 points (20 &times; 5)
+                </p>
+            </div>
+            <a class="btn btn-outline btn-sm" href="edit.html">Edit Settings</a>
+        </div>
+       
+    
+
+    <form class="builder" onsubmit="return false">
+        <input type="hidden" name="questions_json" id="questionsJson">
+        <input type="hidden" name="builder_action" id="builderAction" value="draft">
+        <div class="card">
+            <h3>Add Question</h3>
+            <button type="button" class="btn btn-outline btn-block" style="margin-bottom:6px" onclick="addQuestion('short_answer')">+  Short Answer</button>
+            <button type="button" class="btn btn-outline btn-block" style="margin-bottom:6px" onclick="addQuestion('paragraph')">+  Paragraph</button>
+            <button type="button" class="btn btn-outline btn-block" style="margin-bottom:6px" onclick="addQuestion('multiple_choice')">+  Multiple Choice</button>
+            <button type="button" class="btn btn-outline btn-block" style="margin-bottom:6px" onclick="addQuestion('checkbox')">+  Checkbox</button>
+            <button type="button" class="btn btn-outline btn-block" style="margin-bottom:6px" onclick="addQuestion('rating')">+  Rating</button>
+            <p class="help-text">Question: <strong id="questionCount">0</strong></p>
+        </div>
+
+        <div>
+            <div id="questionList"></div>
+            <div class="row">
+                <button  class="btn btn-primary" type="submit" onclick="return beforeSave('draft')">Save Draft</button>
+                <button  class="btn btn-secondary" type="submit" onclick="return beforeSave('preview')">Preview</button>
+                <button  class="btn btn-primary" type="submit" onclick="return beforeSave('publish')">Publish</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="modal" id="confirmModal">
+        <div class="modal-box">
+            <h3>Please confirm</h3>
+            <p class="modal-actions"></p>
+            <div class="modal-actions">
+                <button type="button" class="btn modal-no">Cancel</button>
+                <button type="button" class="btn btn-danger modal-yes">Yes</button>
+            </div>
+        </div>
+    </div>
+
+        <script>
+            window.existingQuestion = [
+                {"question_text": "How many hours do you study every day?", "question_type": "short_answer", "is_required": 1, "option": []},
+                {"question_text": "Where do you usually study?", "question_type": "multiple_choice", "is_required": 1, "option": ["Home", "Library", "Campus", "Other"]},
+                {"question_text": "Rate your current study routine.", "question_type": "rating", "is_required": 1, "option": []} 
+            ];
+        </script>
+        </main>
+        </div>
+        <footer class="footer">
+            <p>Survey Kori &mdash; University Web Technology Project</p>
+        </footer>
+        <script src="../assets/js/app.js"></script>
+        <script src="../assets/js/survey-builder.js"></script>
+</body>
+</html>

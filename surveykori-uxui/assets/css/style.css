@@ -104,6 +104,16 @@ p{
     font-size: 14px;
 }
 
+.menu-btn {
+    display: none; 
+    background: none;
+    border: none;
+    font-size: 20px; 
+    cursor: pointer;
+    color: var(--dark);
+    
+}
+
 .dot {
     background: var(--danger);
     color: #fff;
@@ -198,6 +208,15 @@ p{
     gap: 12px;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.auth-box{
+    max-width: 460px;
+    margin: 40px auto;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 26px;
 }
 
 .grid-2{

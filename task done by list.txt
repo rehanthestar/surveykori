@@ -1,0 +1,57 @@
+for the record here is the task list done by team members in ux ui works.
+
+
+Rehan
+
+
+dashboard.html - Done
+index.html - Done
+assets/js/survey-builder.js - Done
+assets/js/script.js  - Done
+assets/css/style.css - Done
+notification.html - Done
+profile.html  - Done
+login.html - Done
+register.html - Done
+
+
+
+
+
+Nupur
+
+
+survey/my-surveys.html
+survey/create.html
+assets/css/components.css
+assets/js/survey-builder.js
+survey/edit.html
+admin/surveys.html
+survey/find.html
+survey/view.html
+
+
+
+
+Nawmi
+survey/builder.html
+assets/css/components.css
+assets/js/survey.js
+survey/edit.html
+survey/preview.html
+survey/publish.html
+survey/take.html
+
+
+
+
+Nawshad
+
+points/index.html
+survey/results.html
+points/transection.html
+assets/css/responsive.css
+assets/js/charts.js
+admin/index.html
+admin/login.html
+admin/users.html
