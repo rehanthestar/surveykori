@@ -122,11 +122,25 @@ label {
     padding: 16px;
 }
 
-.stat-card.label {color: var(--muted); font-size: 13px;}
-.stat-card.value {font-size: 26px; font-weight: 700; color: var(--dark); font-family: "Poppins", Arial, sans-serif;}
-.stat-card.green {border-left-color: var(--success);}
-.stat-card.orange {border-left-color: var(--warning);}
-.stat-card.red {border-left-color: var(--danger);}
+.stat-card.label {
+    color: var(--muted);
+    font-size: 13px;
+}
+.stat-card.value {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--dark);
+    font-family: "Poppins", Arial, sans-serif;
+}
+.stat-card.green {
+    border-left-color: var(--success);
+}
+.stat-card.orange {
+    border-left-color: var(--warning);
+}
+.stat-card.red {
+    border-left-color: var(--danger);
+}
 
 .survey-card {
     background: var(--white);
