@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin Dashboard | Survey Kori</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+<link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+<header class="navbar">
+    <div class="navbar-left">
+        <button class="menu-btn" onclick="toggleSidebar()">&#9776;</button>
+        <a class="brand" href="../dashboard.html">Survey<span>Kori</span></a>
+    </div>
+    <div class="navbar-right">
+        <a class="nav-link" href="../notifications.html">Notifications </a>
+        <span class="nav-user">System Admin</span>
+        <a class="btn btn-outline btn-sm" href="../index.html">Logout</a>
+    </div>
+</header>
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+    <nav>
+        <a class="side-link " href="../dashboard.html">Dashboard</a>
+        <a class="side-link " href="../survey/find.html">Find Surveys</a>
+        <a class="side-link " href="../survey/my-surveys.html">My Surveys</a>
+        <a class="side-link " href="../survey/create.html">Create Survey</a>
+        <a class="side-link " href="../points/index.html">Point Center</a>
+        <a class="side-link " href="../notifications.html">Notifications</a>
+        <a class="side-link " href="../profile.html">Profile</a>
+        <a class="side-link" href="../admin/index.html">Admin Panel</a>
+        <a class="side-link" href="../index.html">Logout</a>
+    </nav>
+</aside>
+<main class="content">
+
+<h1>Admin Dashboard</h1>
+
+<div class="grid-4">
+    <div class="stat-card"><div class="label">Total Users</div><div class="value">42</div></div>
+    <div class="stat-card"><div class="label">Total Surveys</div><div class="value">18</div></div>
+    <div class="stat-card orange"><div class="label">Pending Approval</div><div class="value">3</div></div>
+    <div class="stat-card green"><div class="label">Total Responses</div><div class="value">126</div></div>
+</div>
+
+<div class="card mt">
+    <div class="card-title">
+        <h3>Surveys Waiting for Approval</h3>
+        <a class="btn btn-sm btn-outline" href="surveys.html">Open queue</a>
+    </div>
+    <div class="table-wrap">
+    <table class="table">
+        <tr><th>Title</th><th>Creator</th><th>Reward</th><th>Needed</th><th></th></tr>
+            <tr>
+                <td>Campus Food Quality</td>
+                <td>Rahim Uddin</td>
+                <td>4 pts</td>
+                <td>15</td>
+                <td><a class="btn btn-sm btn-primary" href="surveys.html">Review</a></td>
+            </tr>
+            <tr>
+                <td>Mental Health Awareness</td>
+                <td>Dr. Kamal Ahmed</td>
+                <td>10 pts</td>
+                <td>40</td>
+                <td><a class="btn btn-sm btn-primary" href="surveys.html">Review</a></td>
+            </tr>
+            <tr>
+                <td>Student Startup Interest</td>
+                <td>Imran Chowdhury</td>
+                <td>6 pts</td>
+                <td>25</td>
+                <td><a class="btn btn-sm btn-primary" href="surveys.html">Review</a></td>
+            </tr>
+    </table>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-title">
+        <h3>Newest Users</h3>
+        <a class="btn btn-sm btn-outline" href="users.html">Manage users</a>
+    </div>
+    <div class="table-wrap">
+    <table class="table">
+        <tr><th>Name</th><th>Email</th><th>University</th><th>Joined</th></tr>
+            <tr>
+                <td>Sadia Islam</td>
+                <td class="small">sadia@student.com</td>
+                <td class="small">BUET</td>
+                <td class="small">16 Aug 2026</td>
+            </tr>
+            <tr>
+                <td>Imran Chowdhury</td>
+                <td class="small">imran@student.com</td>
+                <td class="small">NSU</td>
+                <td class="small">15 Aug 2026</td>
+            </tr>
+            <tr>
+                <td>Nusrat Jahan</td>
+                <td class="small">nusrat@student.com</td>
+                <td class="small">Dhaka University</td>
+                <td class="small">14 Aug 2026</td>
+            </tr>
+            <tr>
+                <td>Tanvir Hasan</td>
+                <td class="small">tanvir@student.com</td>
+                <td class="small">BRAC University</td>
+                <td class="small">12 Aug 2026</td>
+            </tr>
+            <tr>
+                <td>Rahim Uddin</td>
+                <td class="small">rahim@student.com</td>
+                <td class="small">Dhaka University</td>
+                <td class="small">10 Aug 2026</td>
+            </tr>
+    </table>
+    </div>
+</div>
+
+<p class="small text-muted">Total points earned by all users: <strong>3,240</strong></p>
+
+</main>
+</div>
+<footer class="footer">
+    <p>Survey Kori &mdash; University Web Technology Project</p>
+</footer>
+<script src="../assets/js/script.js"></script>
+
+</body>
+</html>

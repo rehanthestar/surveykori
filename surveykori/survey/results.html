@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Survey Results | Survey Kori</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+<link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+<header class="navbar">
+    <div class="navbar-left">
+        <button class="menu-btn" onclick="toggleSidebar()">&#9776;</button>
+        <a class="brand" href="../dashboard.html">Survey<span>Kori</span></a>
+    </div>
+    <div class="navbar-right">
+        <a class="nav-link" href="../notifications.html">Notifications <span class="dot">3</span></a>
+        <span class="nav-user">Rahim Uddin</span>
+        <a class="btn btn-outline btn-sm" href="../index.html">Logout</a>
+    </div>
+</header>
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+    <nav>
+        <a class="side-link " href="../dashboard.html">Dashboard</a>
+        <a class="side-link " href="../survey/find.html">Find Surveys</a>
+        <a class="side-link is-active" href="../survey/my-surveys.html">My Surveys</a>
+        <a class="side-link " href="../survey/create.html">Create Survey</a>
+        <a class="side-link " href="../points/index.html">Point Center</a>
+        <a class="side-link " href="../notifications.html">Notifications</a>
+        <a class="side-link " href="../profile.html">Profile</a>
+        <a class="side-link" href="../admin/index.html">Admin Panel</a>
+        <a class="side-link" href="../index.html">Logout</a>
+    </nav>
+</aside>
+<main class="content">
+
+<div class="row space-between">
+    <h1>Student Study Habits 2026</h1>
+    <a class="btn btn-outline btn-sm" href="#">Export CSV</a>
+</div>
+
+<div class="card">
+    <div class="row space-between">
+        <strong>12 / 20 Responses</strong>
+        <span>60%</span>
+    </div>
+    <div class="progress mt"><span style="width:60%"></span></div>
+    <p class="small text-muted mt">
+        Status: <span class="badge badge-active">Active</span> &middot;
+        Created: 12 Aug 2026 &middot;
+        Deadline: 30 Sep 2026
+    </p>
+</div>
+
+<h2>Answer Statistics</h2>
+
+<div class="card">
+    <h3>1. How many hours do you study every day?</h3>
+    <p class="q-type">Short Answer</p>
+    <ul>
+        <li class="small">About 3 hours</li>
+        <li class="small">4-5 hours before exams</li>
+        <li class="small">Two hours daily</li>
+        <li class="small">Around 6 hours</li>
+    </ul>
+</div>
+
+<div class="card">
+    <h3>2. Where do you usually study?</h3>
+    <p class="q-type">Multiple Choice</p>
+        <div class="chart-row">
+            <div class="chart-label">
+                <span>Home</span>
+                <span>5 (42%)</span>
+            </div>
+            <div class="chart-bar"><span data-percent="42" style="width:42%"></span></div>
+        </div>
+        <div class="chart-row">
+            <div class="chart-label">
+                <span>Library</span>
+                <span>4 (33%)</span>
+            </div>
+            <div class="chart-bar"><span data-percent="33" style="width:33%"></span></div>
+        </div>
+        <div class="chart-row">
+            <div class="chart-label">
+                <span>Campus</span>
+                <span>2 (17%)</span>
+            </div>
+            <div class="chart-bar"><span data-percent="17" style="width:17%"></span></div>
+        </div>
+        <div class="chart-row">
+            <div class="chart-label">
+                <span>Other</span>
+                <span>1 (8%)</span>
+            </div>
+            <div class="chart-bar"><span data-percent="8" style="width:8%"></span></div>
+        </div>
+</div>

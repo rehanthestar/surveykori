@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Manage Surveys | Survey Kori</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="navbar-left">
+            <button class="menu-btn" onclick="toggleSidebar()">&#9776;</button>
+            <a class="brand" href="../dashboard.html">Survey<span>Kori</span></a>
+        </div>
+        <div class="navbar-right">
+            <a class="nav-link" href="../notifications.html">Notifications </a>
+            <span class="nav-user">System Admin</span>
+            <a class="btn btn-outline btn-sm" href="../index.html">Logout</a>
+        </div>
+    </header>
+    <div class="layout">
+        <aside class="sidebar" id="sidebar">
+            <nav>
+                <a class="side-link " href="../dashboard.html">Dashboard</a>
+                <a class="side-link " href="../survey/find.html">Find Surveys</a>
+                <a class="side-link is-active" href="../survey/my-surveys.html">My Surveys</a>
+                <a class="side-link " href="../survey/create.html">Create Survey</a>
+                <a class="side-link " href="../points/index.html">Point Center</a>
+                <a class="side-link " href="../notifications.html">Notifications</a>
+                <a class="side-link " href="../profile.html">Profile</a>
+                <a class="side-link " href="../admin/index.html">Admin Panel</a>
+                <a class="side-link " href="../index.html">Logout</a>
+            </nav>
+        </aside>
+        <main class="content">
+        <h1>Manage Surveys</h1>
+        <div class="row mb">
+            <a class="btn btn-sm btn-primary" href="surveys.html">Pending</a>
+            <a class="btn btn-sm btn-outline" href="surveys.html">Active</a>
+            <a class="btn btn-sm btn-outline" href="surveys.html">Completed</a>
+            <a class="btn btn-sm btn-outline" href="surveys.html">Rejected</a>
+            <a class="btn btn-sm btn-outline" href="surveys.html">Closed</a>
+            <a class="btn btn-sm btn-outline" href="surveys.html">Draft</a>
+            <a class="btn btn-sm btn-outline" href="surveys.html">All</a>
+        </div>
+        <div class="card">
+            <div class="row space-between">
+                <h3>Campus Food Quality</h3>
+                <span class="badge badge-pending">Pending</span>
+            </div>
+            <p class="small text-muted">
+                By Rahim Uddin (rahim@student.com) &middot;
+                Health &middot;
+                5 questions &middot;
+                4 pts &times; 15 responses
+                = 60 pts locked
+            </p>
+            <p>A survey about the food quality and price at the university canteen.</p>
+            <div class="row">
+                <a class="btn btn-sm btn-outline" href="../survey/preview.html">Preview questions</a>
+                <form style="display: inline">
+                    <button class="btn btn-sm btn-success" type="button" data-confirm="Approve this survey?">Approve</button>
+                </form>
+                <form class="row" style="display:inline-flex">
+                    <input class="input input-sm" type="text" placeholder="Rejection reason" maxlength="255">
+                    <button class="btn btn-sm btn-danger" type="button">Reject</button>
+                </form>
+            </div>
+        </div>
+        <div class="card">
+            <div class="row space-between">
+                <h3>Mental Health Awareness</h3>
+                <span class="badge badge-pending">Pending</span>
+            </div>
+            <p class="small text-muted">
+                By Dr. Kamal Ahmed (kamal@researcher.com) &middot;
+                Health &middot;
+                12 questions &middot;
+                10 pts &times; 40 responses
+                = 400 pts locked
+            </p>
+            <p>Understanding stress levels and mental health support needs on campus.</p>
+            <div class="row">
+                <a class="btn btn-sm btn-outline" href="../survey/preview.html">Preview questions</a>
+                <form style="display: inline">
+                    <button class="btn btn-sm btn-success" type="button" data-confirm="Approve this survey?">Approve</button>
+                </form>
+                <form class="row" style="display:inline-flex">
+                    <input class="input input-sm" type="text" placeholder="Rejection reason" maxlength="255">
+                    <button class="btn btn-sm btn-danger" type="button">Reject</button>
+                </form>
+            </div>
+        </div>
+        <div class="card">
+            <div class="row space-between">
+                <h3>Student Study Habits 2026</h3>
+                <span class="badge badge-active">Active</span>
+            </div>
+            <p class="small text-muted">
+                By Rahim Uddin (rahim@student.com) &middot;
+                Education &middot;
+                3 questions &middot;
+                5 pts &times; 20 responses
+                = 100 pts locked
+            </p>
+            <p>A short survey about the daily study habits of university students.</p>
+            <div class="row">
+                <a class="btn btn-sm btn-outline" href="../survey/preview.html">Preview questions</a>
+                <form style="display: inline">
+                    <button class="btn btn-sm btn-danger" type="button" data-confirm="Force close this survey?">Force Close</button>
+                </form>
+            </div>
+        </div>
+        <div class="card">
+            <div class="row space-between">
+                <h3>Gaming Habits Poll</h3>
+                <span class="badge badge-rejected">Rejected</span>
+            </div>
+            <p class="small text-muted">
+                By Imran Chowdhury (imran@student.com) &middot;
+                Other &middot;
+                4 questions &middot;
+                2 pts &times; 10 responses
+                = 20 pts locked
+            </p>
+            <p>Which games do students play in their free time?</p>
+            <div class="alert alert-error small">Rejected: Topic is not related to academic research.</div>
+            <div class="row">
+                <a class="btn btn-sm btn-outline" href="../survey/preview.html">Preview questions</a>
+            </div>
+        </div>
+        <div class="modal" id="confirmModal">
+            <div class="modal-box">
+                <h3>Please Confirm</h3>
+                <p class="modal-message"></p>
+                <div class="modal-actions">
+                    <button type="button" class="btn modal-no">Cancel</button>
+                    <button type="button" class="btn btn-danger modal-yes">Yes</button>
+                </div>
+            </div>
+        </div> 
+        </main>
+        </div>
+        <footer class="footer">
+            <p>Survey Kori &mdash; University Web Technology Project</p>
+        </footer>
+        <script src="../assets/js/script.js"></script>
+</body>
+</html>
