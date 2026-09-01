@@ -9,7 +9,7 @@
             PDO::ATTR_EMULATE_PREPARES   => false,
         ]);
     } catch (PDOException $e) {
-        die('Database connection failed. Please check app/core/Config.php.');
+        die('Database connection faileds. Please check app/core/Config.php.');
     }
 
     function db_run($sql, $params = [])

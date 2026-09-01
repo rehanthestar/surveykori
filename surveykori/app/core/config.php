@@ -1,9 +1,10 @@
 <?php
 
 define('DB_HOST', 'localhost');
+
+define('DB_NAME', 'survey_kori');
 define('DB_USER', 'root');
 define('DB_PASS', '');
-define('DB_NAME', 'surveykori');
 
 define('BASE_URL', '/surveykori/surveykori');
 define('APP_NAME', 'Survey Kori');
