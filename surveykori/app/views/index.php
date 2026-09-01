@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Survey Kori - Point Based Survey Exchange for Students</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/components.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/style.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/components.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/responsive.css">
     
 </head>
 <body>
     <nav class="public-nav">
-        <a class="brand" href="index.html">Survey<span>Kori</span></a>
+        <a class="brand" href="<?php echo BASE_URL; ?>/index.php">Survey<span>Kori</span></a>
         <div class="row">
-            <a href="login.html" class="btn  btn-sm btn-outline">Login</a>
-            <a href="register.html" class="btn  btn-sm btn-outline">Register</a>
+            <a href="<?php echo BASE_URL; ?>/login.php" class="btn  btn-sm btn-outline">Login</a>
+            <a href="<?php echo BASE_URL; ?>/register.php" class="btn  btn-sm btn-outline">Register</a>
         </div>
     </nav>
 
@@ -23,8 +23,8 @@
         <p>dtsrg wertw t ewt</p>
 
         <div class="hero-action">
-            <a href="login.html" class="btn  btn-sm btn-outline">Login</a>
-            <a href="register.html" class="btn  btn-sm btn-outline">Register</a> 
+            <a href="<?php echo BASE_URL; ?>/login.php" class="btn  btn-sm btn-outline">Login</a>
+            <a href="<?php echo BASE_URL; ?>/register.php" class="btn  btn-sm btn-outline">Register</a> 
         </div>
     </section>
 
@@ -53,7 +53,7 @@
 
             <footer class="footer">
 
-                <p>Survey Kori &mdash; University Web Technology Project</p>
+                <p><?php echo APP_NAME; ?> &mdash; University Web Technology Project</p>
 
             </footer>
 
