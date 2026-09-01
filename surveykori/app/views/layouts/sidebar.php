@@ -19,7 +19,7 @@
 ?>
 
 
-<aisde class="sidebar" id="sidebar">
+<aside class="sidebar" id="sidebar">
     <nav>
         <?php foreach ($menu as $key => $item): ?>
             <a class="side-link <?php echo $active === $key ? 'is-active' : ''; ?>"
@@ -30,3 +30,7 @@
         <?php endif; ?>
         <a class="side-link" href="<?php echo BASE_URL; ?>/logout.php">Logout</a>
     </nav>
+
+        </aside>
+
+        <main class="content">

@@ -73,22 +73,13 @@
 
                         <button type="button" class="btn-secondary btn">Update pass</button>
 
-                        <p class="small text-muted mt">Member since <?php echo nice_date($user['created_at']); ?></p>
+                       
 
 
 
                     </form>
+
+                     <p class="small text-muted mt">Member since <?php echo nice_date($user['created_at']); ?></p>
                 </div>
             </div>
 
-
-        </main>
-    </div>
-
-    <footer class="footer">
-        <p>Survey Kori &mdash; University Web Technology Project</p>
-
-    </footer>
-<script src="assets/js/script.js"></script>
-</body>
-</html>

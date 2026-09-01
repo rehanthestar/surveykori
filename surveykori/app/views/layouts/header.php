@@ -32,6 +32,8 @@ $home_url = !empty($is_admin_area) ? '/admin/index.php' : '/dashboard.php';
                 <a class="brand" href="<?php echo BASE_URL . $home_url; ?>">Survey<span>Kori</span></a>
             </div>
             <div class="navbar-right">
+
+            
                 <?php if ($user): ?>
                     <a class="nav-link" href="<?php echo BASE_URL; ?>/notifications.php">
                         Notifications
@@ -42,6 +44,9 @@ $home_url = !empty($is_admin_area) ? '/admin/index.php' : '/dashboard.php';
                     <span class="nav-user"><?php echo e($user['full_name']); ?></span>
                     <a class="btn btn-outline btn-sm" href="<?php echo BASE_URL; ?>/logout.php">Logout</a>
                 <?php endif; ?>
+
+
+               
             </div>
         </header>
 
