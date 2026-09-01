@@ -21,122 +21,38 @@
                 
             </form>
         </div>
-        
-        <div class="grid-3">
-            <div class="survey-card">
-                <h3>Campus Transport Experience</h3>
-                <p class="small text-muted">How do students travel to campus every day and what problems do they face?</p>
-                <div>
-                    <span class="badge badge-cat">Social</span>
-                    <span class="badge badge-active">Active</span>
-                </div>
-                <div class="survey-meta">
-                    <span>By Ayesha Rahman</span>
-                    <span>6 questions</span>
-                </div>
-                <div class="survey-meta">
-                    <span>Reward: <strong>5 points</strong></span>
-                    <span>8 / 25 responses</span>
-                </div>
-                <div class="survey-meta"><snap>Deadline: 20 Sep 2026</snap></div>
-                <div class="row">
-                    <a class="btn btn-outline btn-sm" href="view.html">View Survey</a>
-                    <a class="btn btn-primary btn-sm" href="take.html">Take Survey</a>
-                </div>
-            </div>
 
-            <div class="survey-card">
-                <h3>Library Facility Feedback</h3>
-                <p class="small text-muted">Share your opinion about the central library services and reading environment.</p>
-                <div>
-                    <span class="badge badge-cat">Education</span>
-                    <span class="badge badge-active">Active</span>
-                </div>
-                <div class="survey-meta">
-                    <span>By Nusrat Jahan</span>
-                    <span>7 questions</span>
-                </div>
-                <div class="survey-meta">
-                    <span>Reward: <strong>4 points</strong></span>
-                    <span>18 / 20 responses</span>
-                </div>
-                <div class="survey-meta"><snap>Deadline: 18 Sep 2026</snap></div>
-                <div class="row">
-                    <a class="btn btn-outline btn-sm" href="view.html">View Survey</a>
-                    <a class="btn btn-primary btn-sm" href="take.html">Take Survey</a>
-                </div>
+        <?php if (!$surveys): ?>
+            <div class="card text-muted">No surveys available right now. Please check again later.</div>
+        <?php else: ?>
+            <div class="grid-3">
+                <?php foreach ($surveys as $s): ?>
+                    <div class="survey-card">
+                        <h3><?php echo e($s['title']); ?></h3>
+                        <p class="small text-muted"><?php echo e(mb_substr($s['description'], 0, 90)); ?><?php echo mb_strlen($s['description']) > 90 ? '...' : ''; ?></p>
+                        <div>
+                            <span class="badge badge-cat"><?php echo e($s['category']); ?></span>
+                            <?php echo survey_badge($s['status']); ?>
+                        </div>
+                        <div class="survey-meta">
+                            <span>By <?php echo e($s['full_name']); ?></span>
+                            <span><?php echo (int)$s['q_count']; ?> questions</span>
+                        </div>
+                        <div class="survey-meta">
+                            <span>Reward: <strong><?php echo (int)$s['reward_per_response']; ?> points</strong></span>
+                            <span><?php echo (int)$s['collected_responses']; ?> / <?php echo (int)$s['required_responses']; ?> responses</span>
+                        </div>
+                        <div class="survey-meta"><span>Deadline: <?php echo nice_date($s['deadline']); ?></span></div>
+                        <div class="row">
+                            <a class="btn btn-outline btn-sm" href="<?php echo BASE_URL; ?>/survey/view.php?id=<?php echo (int)$s['id']; ?>">View Survey</a>
+                            <a class="btn btn-primary btn-sm" href="<?php echo BASE_URL; ?>/survey/take.php?id=<?php echo (int)$s['id']; ?>">Take Survey</a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
-<div class="survey-card">
-                <h3>Library Facility Feedback</h3>
-                <p class="small text-muted">Share your opinion about the central library services and reading environment.</p>
-                <div>
-                    <span class="badge badge-cat">Education</span>
-                    <span class="badge badge-active">Active</span>
-                </div>
-                <div class="survey-meta">
-                    <span>By Nusrat Jahan</span>
-                    <span>7 questions</span>
-                </div>
-                <div class="survey-meta">
-                    <span>Reward: <strong>4 points</strong></span>
-                    <span>18 / 20 responses</span>
-                </div>
-                <div class="survey-meta"><snap>Deadline: 18 Sep 2026</snap></div>
-                <div class="row">
-                    <a class="btn btn-outline btn-sm" href="view.html">View Survey</a>
-                    <a class="btn btn-primary btn-sm" href="take.html">Take Survey</a>
-                </div>
-            </div>
-<div class="survey-card">
-                <h3>Library Facility Feedback</h3>
-                <p class="small text-muted">Share your opinion about the central library services and reading environment.</p>
-                <div>
-                    <span class="badge badge-cat">Education</span>
-                    <span class="badge badge-active">Active</span>
-                </div>
-                <div class="survey-meta">
-                    <span>By Nusrat Jahan</span>
-                    <span>7 questions</span>
-                </div>
-                <div class="survey-meta">
-                    <span>Reward: <strong>4 points</strong></span>
-                    <span>18 / 20 responses</span>
-                </div>
-                <div class="survey-meta"><snap>Deadline: 18 Sep 2026</snap></div>
-                <div class="row">
-                    <a class="btn btn-outline btn-sm" href="view.html">View Survey</a>
-                    <a class="btn btn-primary btn-sm" href="take.html">Take Survey</a>
-                </div>
-            </div>
-<div class="survey-card">
-                <h3>Library Facility Feedback</h3>
-                <p class="small text-muted">Share your opinion about the central library services and reading environment.</p>
-                <div>
-                    <span class="badge badge-cat">Education</span>
-                    <span class="badge badge-active">Active</span>
-                </div>
-                <div class="survey-meta">
-                    <span>By Nusrat Jahan</span>
-                    <span>7 questions</span>
-                </div>
-                <div class="survey-meta">
-                    <span>Reward: <strong>4 points</strong></span>
-                    <span>18 / 20 responses</span>
-                </div>
-                <div class="survey-meta"><snap>Deadline: 18 Sep 2026</snap></div>
-                <div class="row">
-                    <a class="btn btn-outline btn-sm" href="view.html">View Survey</a>
-                    <a class="btn btn-primary btn-sm" href="take.html">Take Survey</a>
-                </div>
-            </div>
-<div class="survey-card">
-                <h3>Library Facility Feedback</h3>
-                <p class="small text-muted">Share your opinion about the central library services and reading environment.</p>
-                <div>
-                    <span class="badge badge-cat">Education</span>
-                    <span class="badge badge-active">Active</span>
-                </div>
-                <div class="survey-meta">
+        <?php endif; ?>
+                
+                   
                     <span>By Nusrat Jahan</span>
                     <span>7 questions</span>
                 </div>
