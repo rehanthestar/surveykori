@@ -1,48 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>take Survey | Survey Kori</title>
-        <link rel="stylesheet" href="../assets/css/style.css">
-        <link rel="stylesheet" href="../assets/css/components.css">
-        <link rel="stylesheet" href="../assets/css/responsive.css">
-    </head>
-    <body>
-        <header class="navbar">
-            <div class="navbar-left">
-                <button class="menu-btn" onclick="toggleSidebar()">&#9776;</button>
-                <a class="brand" href="../dashboard.html">Survey <span>Kori</span></a>
-            </div>
-            <div class="navbar-right">
-                <a class="nav-link" href="../notifications.html">Notifications <span class="dot">3</span></a>
-                <span class="nav-user">Rahim Uddin</span>
-                <a class="btn btn-outline btn-sm" href="../index.html">Logout</a>
-            </div>
-        </header>
-        <div class="layout">
-            <aside class="sidebar" id="sidebar">
-                <nav>
-                    <a class="side-link" href="../dashboard.html">Dashboard</a>
-                    <a class="side-link is-active" href="../survey/find.html">Find Surveys</a>
-                    <a class="side-link" href="../survey/my-surveys.html">My Surveys</a>
-                    <a class="side-link" href="../survey/create.html">Create Survey</a>
-                    <a class="side-link" href="../points/index.html">Point Center</a>
-                    <a class="side-link" href="../notifications.html">Notifications</a>
-                    <a class="side-link" href="../profile.html">Profile</a>
-                    <a class="side-link" href="../admin/index.html">Admin Panel</a>
-                    <a class="side-link" href="../index.html">Logout</a>
-                </nav>
-            </aside>
-            <main class="content">
-                <h1>Campus Transport Experience</h1>
-                <p class="text-muted">How do students travel to campus everyday and what problem do they face?</p>
-                <p class="small text-muted">By Ayesha Rahman &middot; Reward 5 points</p>
+
+                <h1><?php echo e($survey['title']); ?></h1>
+                <p class="text-muted"><?php echo e($survey['description']); ?></p>
+                <p class="small text-muted">By <?php echo e($survey['full_name']); ?> &middot; Reward <?php echo (int)$survey['reward_per_response']; ?> points</p>
 
                 <div class="card">
                     <div class="row space-between">
                         <strong id="progressText">Question 1</strong>
-                        <span class="small text-muted">5 questions</span>
+                        <span class="small text-muted"><?php echo count($questions); ?> questions</span>
                     </div>
                     <div class="progress mt"><span id="progressBar" style="width:0%"></span></div>
                 </div>
