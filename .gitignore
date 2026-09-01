@@ -1,0 +1,3 @@
+# Ignore the local configuration file
+	
+	surveykori/app/core/Config.php
