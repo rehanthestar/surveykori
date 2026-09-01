@@ -5,7 +5,7 @@ define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_NAME', 'surveykori');
 
-define('BASE_URL', '/survey-kori/survey-kori');
+define('BASE_URL', '/surveykori/surveykori');
 define('APP_NAME', 'Survey Kori');
 
 define('APP_PATH', dirname(__DIR__));
