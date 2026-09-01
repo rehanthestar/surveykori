@@ -40,3 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         redirect('/survey/builder.php?id=' . $survey_id);
     }
 }
+
+$page_title = 'Create Survey';
+$active     = 'create';
