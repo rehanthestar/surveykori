@@ -20,105 +20,47 @@
                 <div class="small text-danger">Reason: <?php echo e($s['rejection_reason']); ?></div>
             <?php endif; ?>
         </td>
-        <td><span class="badge badge-cat">Education</span></td>
-        <td>5 pts</td>
-        <td>12 / 20</td>
-        <td class="small">30 Sep 2026</td>
-                        <td><span class="badge badge-active">Active</span></td>
-                        <td>
-                            <div class="row">
-                                <a class="btn btn-sm btn-outline" href="results.html">Results</a>
-                                <form style="display:inline">
-                                    <button class="btn btn-sm btn-danger" type="button" data-confirm="Close this survey and refund unused points?">Close</button>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Campus Food Quality
-                        </td>
-                        <td><span class="badge badge-cat">Health</span></td>
-                        <td>4 pts</td>
-                        <td>0 / 15</td>
-                        <td class="small">28 Sep 2026</td>
-                        <td><span class="badge badge-pending">Pending</span></td>
-                        <td>
-                            <div class="row">
-                                <a class="btn btn-sm btn-outline" href="results.html">Results</a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Online Class Feedback
-                        </td>
-                        <td><span class="badge badge-cat">Education</span></td>
-                        <td>3 pts</td>
-                        <td>0 / 10</td>
-                        <td class="small">05 Oct 2026</td>
-                        <td><span class="badge badge-draft">Draft</span></td>
-                        <td>
-                            <div class="row">
-                                <a class="btn btn-sm btn-outline" href="results.html">Results</a>
-                                <a class="btn btn-sm" href="builder.html">Edit</a>
-                                <a class="btn btn-sm btn-success" href="publish.html">Publish</a>
-                                <form style="display:inline">
-                                    <button class="btn btn-sm btn-danger" type="button" data-confirm="Delete this survey?">Delete</button>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Gaming Habits Poll
-                            <div class="small text-danger">Reason: Topic is not related to academic research.</div>
-                        </td>
-                        <td><span class="badge badge-cat">Other</span></td>
-                        <td>2 pts</td>
-                        <td>0 / 10</td>
-                        <td class="small">02 Oct 2026</td>
-                        <td><span class="badge badge-rejected">Rejected</span></td>
-                        <td>
-                            <div class="row">
-                                <a class="btn btn-sm btn-outline" href="results.html">Results</a>
-                                <a class="btn btn-sm" href="builder.html">Edit</a>
-                                <a class="btn btn-sm btn-success" href="publish.html">Publish</a>
-                                <form style="display:inline">
-                                    <button class="btn btn-sm btn-danger" type="button" data-confirm="Delete this survey?">Delete</button>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Alumni Career Path
-                        </td>
-                        <td><span class="badge badge-cat">Business</span></td>
-                        <td>6 pts</td>
-                        <td>20 / 20</td>
-                        <td class="small">01 Aug 2026</td>
-                        <td><span class="badge badge-completed">Completed</span></td>
-                        <td>
-                            <div class="row">
-                                <a class="btn btn-sm btn-outline" href="results.html">Results</a>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+        <td><span class="badge badge-cat"><?php echo e($s['category']); ?></span></td>
+        <td><?php echo (int)$s['reward_per_response']; ?> pts</td>
+        <td><?php echo (int)$s['collected_responses']; ?> / <?php echo (int)$s['required_responses']; ?></td>
+        <td class="small"><?php echo nice_date($s['deadline']); ?></td>
+        <td><?php echo survey_badge($s['status']); ?></td>
+        <td>
+            <div class="row">
+            <a class="btn btn-sm btn-outline" href="<?php echo BASE_URL; ?>/survey/results.php?id=<?php echo (int)$s['id']; ?>">Results</a>
 
-            <div class="modal" id="confirmModal">
-                <div class="modal-box">
-                    <h3>Please Confirm</h3>
-                    <p class="modal-message"></p>
-                    <div class="modal-actions">
-                        <button type="button" class="btn modal-no">Cancel</button>
-                        <button type="button" class="btn btn-danger modal-yes">Yes</button>
-                    </div>
-                </div>
+                <?php if (in_array($s['status'], ['draft', 'rejected'])): ?>
+                    <a class="btn btn-sm" href="<?php echo BASE_URL; ?>/survey/builder.php?id=<?php echo (int)$s['id']; ?>">Edit</a>
+                    <a class="btn btn-sm btn-success" href="<?php echo BASE_URL; ?>/survey/publish.php?id=<?php echo (int)$s['id']; ?>">Publish</a>
+                    <form method="post" style="display:inline">
+                        <input type="hidden" name="action" value="delete">
+                        <input type="hidden" name="survey_id" value="<?php echo (int)$s['id']; ?>">
+                        <button class="btn btn-sm btn-danger" type="submit" data-confirm="Delete this survey?">Delete</button>
+                    </form>
+                <?php endif; ?>
+                <?php if ($s['status'] === 'active'): ?>
+                    <form method="post" style="display:inline">
+                        <input type="hidden" name="action" value="close">
+                        <input type="hidden" name="survey_id" value="<?php echo (int)$s['id']; ?>">
+                        <button class="btn btn-sm btn-danger" type="submit"
+                                data-confirm="Close this survey and refund unused points?">Close</button>
+                    </form>
+                <?php endif; ?>
             </div>
-        </main>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+</table>
+</div>
+<?php endif; ?>
+
+<div class="modal" id="confirmModal">
+    <div class="modal-box">
+        <h3>Please Confirm</h3>
+        <p class="modal-message"></p>
+        <div class="modal-actions">
+            <button type="button" class="btn modal-no">Cancel</button>
+            <button type="button" class="btn btn-danger modal-yes">Yes</button>
+        </div>
     </div>
-    <footer class="footer">
-        <p>Survey Kori &mdash; University Web Technology Project</p>
-    </footer>
-    <script src="../assets/js/script.js"></script>
-</body>
-</html>
+</div>
