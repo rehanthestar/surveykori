@@ -4,36 +4,36 @@ function e($text): string
 {
     return htmlspecialchars((string)$text, ENT_QUOTES, 'UTF-8');
 }
-function redirect(string $path): void
+function redirect($path)
 {
     header('Location: ' . BASE_URL . $path);
     exit;
 }
 
-function set_flash(string $type, string $message): void
+function set_flash( $type,  $message)
 {
     $_SESSION['flash'] = ['type' => $type, 'message' => $message];
 }
 
-function show_flash(): void
+function show_flash()
 {
     if (!empty($_SESSION['flash'])) {
-        $flash = $_SESSION['flash'];
+        $f = $_SESSION['flash'];
         unset($_SESSION['flash']);
-        echo '<div class="alert alert-' . e($flash['type']) . '">' . e($flash['message']) . '</div>';
+        echo '<div class="alert alert-' . e($f['type']) . '">' . e($f['message']) . '</div>';
     }
 }
 
-function nice_date($date): string
+function nice_date($date)
 {
     if (!$date) {
         return '-';
     }
 
-    return date('M d, Y', strtotime($date));
+    return date('d M, Y', strtotime($date));
 }
 
-function survey_badge(string $status): string
+function survey_badge($status)
 {
     $map = [
         'draft' => 'badge-draft',
@@ -43,27 +43,10 @@ function survey_badge(string $status): string
         'rejected' => 'badge-rejected',
         'closed' => 'badge-closed',
     ];
-    $class = $map[$status] ?? 'badge-draft';
+    $class = isset($map[$status]) ? $map[$status] : 'badge-draft';
     return '<span class="badge ' . $class . '">' . e(ucfirst($status)) . '</span>';
 }
 
-function survey_categories(): array
-{
-    return ['Education', 'Technology', 'Student Life', 'Research', 'Social Media', 'Health', 'Other'];
-}
 
-function question_types(): array
-{
-    return [
-        'short_answer' => 'Short Answer',
-        'paragraph' => 'Paragraph',
-        'multiple_choice' => 'Multiple Choice',
-        'checkboxes' => 'Checkboxes',
-        'dropdown' => 'Dropdown',
-        'linear_scale' => 'Linear Scale',
-        'date' => 'Date',
-        'time' => 'Time',
-    ];
-}
 
 ?>
