@@ -81,5 +81,5 @@ function question_types()
         'multiple_choice' => 'Multiple Choice',
         'checkbox' => 'Checkbox',
         'rating' => 'Rating',
-    ]
+    ];
 }
