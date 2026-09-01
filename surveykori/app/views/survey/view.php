@@ -13,15 +13,16 @@
                 <tr><th>Responses</th><td><?php echo (int)$survey['collected_responses']; ?> / <?php echo (int)$survey['required_responses']; ?></td></tr>
                 <tr><th>Deadline</th><td><?php echo nice_date($survey['deadline']); ?></td></tr>
             </table>
-            
-            <a class="btn btn-primary mt" href="take.html">Start Survey</a>
-            <a class="btn btn-outline mt" href="find.html">Back to list</a>
+
+            <?php if ($is_mine): ?>
+                <div class="alert alert-info mt">This is your own survey.</div>
+                <a class="btn btn-outline" href="<?php echo BASE_URL; ?>/survey/results.php?id=<?php echo $survey_id; ?>">View Results</a>
+            <?php endif ($already): ?>
+                <div class="alert alert-success mt">You have already answered this survey.</div>
+            <?php elseif ($survey['status'] !== 'active'): ?>
+                <div class="alert alert-warning mt">This survey is not accepting responses.</div>
+            <?php endif; ?>
+            <a class="btn btn-primary mt" href="<?php echo BASE_URL; ?>/survey/take.php?id=<?php echo $survey_id; ?>">Take Survey</a>
+           <?php endif; ?>
         </div>
-        </main>
-        </div>
-        <footer class="footer">
-            <p>Survey Kori &mdash; University Web Technology Project</p>
-        </footer>
-        <script src="../assets/js/script.js"></script>
-</body>
-</html>
+        
