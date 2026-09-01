@@ -52,28 +52,4 @@
             </div>
         <?php endif; ?>
                 
-                   
-                    <span>By Nusrat Jahan</span>
-                    <span>7 questions</span>
-                </div>
-                <div class="survey-meta">
-                    <span>Reward: <strong>4 points</strong></span>
-                    <span>18 / 20 responses</span>
-                </div>
-                <div class="survey-meta"><snap>Deadline: 18 Sep 2026</snap></div>
-                <div class="row">
-                    <a class="btn btn-outline btn-sm" href="view.html">View Survey</a>
-                    <a class="btn btn-primary btn-sm" href="take.html">Take Survey</a>
-                </div>
-            </div>
-
-
-        </div>
-        </main>
-        </div>
-        <footer class="footer">
-            <p>Survey Kori &mdash; University Web Technology Project</p>
-        </footer>
-        <script src="../assets/js/script.js"></script>
-</body>
-</html>
+            
