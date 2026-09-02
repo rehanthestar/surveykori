@@ -127,6 +127,7 @@ function escapeHtml(text) {
         .replace(/>/g, '&gt;');
 }
 
+/* Called before the form is submitted. */
 function beforeSave(action) {
     for (var i = 0; i < questions.length; i++) {
         if (questions[i].question_text.trim() === '') {
