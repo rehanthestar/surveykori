@@ -1,4 +1,4 @@
-<<h1>Point Center</h1>
+<h1>Point Center</h1>
 <p class="text-muted">Points are an internal exchange unit of Survey Kori. There is no money involved.</p>
 
 <div class="grid-4">
