@@ -1,6 +1,6 @@
 <?php
     $user = require_login();
-    $points = get_user_points($user['id']);
+    $points = get_points($user['id']);
 
     $created = db_one('SELECT COUNT(*) AS c FROM surveys WHERE user_id = ?', [$user['id']])['c'];
     $completed = db_one('SELECT COUNT(*) AS c FROM responses WHERE user_id = ?', [$user['id']])['c'];
