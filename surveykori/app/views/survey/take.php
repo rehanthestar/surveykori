@@ -66,5 +66,5 @@
 
                 </form>
             
-        <script src="<?php echo BASE_URL; ?>assets/js/survey.js"></script>
+        <script src="<?php echo BASE_URL; ?>/assets/js/survey.js"></script>
        
