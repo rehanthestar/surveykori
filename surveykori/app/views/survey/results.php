@@ -1,101 +1,111 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Survey Results | Survey Kori</title>
-<link rel="stylesheet" href="../assets/css/style.css">
-<link rel="stylesheet" href="../assets/css/components.css">
-<link rel="stylesheet" href="../assets/css/responsive.css">
-</head>
-<body>
-<header class="navbar">
-    <div class="navbar-left">
-        <button class="menu-btn" onclick="toggleSidebar()">&#9776;</button>
-        <a class="brand" href="../dashboard.html">Survey<span>Kori</span></a>
-    </div>
-    <div class="navbar-right">
-        <a class="nav-link" href="../notifications.html">Notifications <span class="dot">3</span></a>
-        <span class="nav-user">Rahim Uddin</span>
-        <a class="btn btn-outline btn-sm" href="../index.html">Logout</a>
-    </div>
-</header>
-<div class="layout">
-<aside class="sidebar" id="sidebar">
-    <nav>
-        <a class="side-link " href="../dashboard.html">Dashboard</a>
-        <a class="side-link " href="../survey/find.html">Find Surveys</a>
-        <a class="side-link is-active" href="../survey/my-surveys.html">My Surveys</a>
-        <a class="side-link " href="../survey/create.html">Create Survey</a>
-        <a class="side-link " href="../points/index.html">Point Center</a>
-        <a class="side-link " href="../notifications.html">Notifications</a>
-        <a class="side-link " href="../profile.html">Profile</a>
-        <a class="side-link" href="../admin/index.html">Admin Panel</a>
-        <a class="side-link" href="../index.html">Logout</a>
-    </nav>
-</aside>
-<main class="content">
-
 <div class="row space-between">
-    <h1>Student Study Habits 2026</h1>
-    <a class="btn btn-outline btn-sm" href="#">Export CSV</a>
+    <h1><?php echo e($survey['title']); ?></h1>
+    <a class="btn btn-outline btn-sm" href="?id=<?php echo $survey_id; ?>&export=csv">Export CSV</a>
 </div>
 
 <div class="card">
     <div class="row space-between">
-        <strong>12 / 20 Responses</strong>
-        <span>60%</span>
+        <strong><?php echo $total; ?> / <?php echo $required; ?> Responses</strong>
+        <span><?php echo $percent; ?>%</span>
     </div>
-    <div class="progress mt"><span style="width:60%"></span></div>
+    <div class="progress mt"><span style="width:<?php echo min($percent, 100); ?>%"></span></div>
     <p class="small text-muted mt">
-        Status: <span class="badge badge-active">Active</span> &middot;
-        Created: 12 Aug 2026 &middot;
-        Deadline: 30 Sep 2026
+        Status: <?php echo survey_badge($survey['status']); ?> &middot;
+        Created: <?php echo nice_date($survey['created_at']); ?> &middot;
+        Deadline: <?php echo nice_date($survey['deadline']); ?>
     </p>
 </div>
 
 <h2>Answer Statistics</h2>
 
-<div class="card">
-    <h3>1. How many hours do you study every day?</h3>
-    <p class="q-type">Short Answer</p>
-    <ul>
-        <li class="small">About 3 hours</li>
-        <li class="small">4-5 hours before exams</li>
-        <li class="small">Two hours daily</li>
-        <li class="small">Around 6 hours</li>
-    </ul>
-</div>
+<?php foreach ($questions as $index => $q): ?>
+    <div class="card">
+        <h3><?php echo ($index + 1) . '. ' . e($q['question_text']); ?></h3>
+        <p class="q-type"><?php echo e(question_types()[$q['question_type']]); ?></p>
 
-<div class="card">
-    <h3>2. Where do you usually study?</h3>
-    <p class="q-type">Multiple Choice</p>
-        <div class="chart-row">
-            <div class="chart-label">
-                <span>Home</span>
-                <span>5 (42%)</span>
+        <?php if (in_array($q['question_type'], ['multiple_choice', 'checkbox', 'rating'])): ?>
+            <?php
+            if ($q['question_type'] === 'rating') {
+                $labels = ['1', '2', '3', '4', '5'];
+            } else {
+                $labels = [];
+                foreach (db_all('SELECT option_text FROM question_options WHERE question_id = ? ORDER BY option_order', [$q['id']]) as $o) {
+                    $labels[] = $o['option_text'];
+                }
+            }
+
+            $all_answers = db_all(
+                'SELECT a.answer_text FROM answers a
+                   JOIN responses r ON r.id = a.response_id
+                  WHERE a.question_id = ? AND r.survey_id = ?',
+                [$q['id'], $survey_id]
+            );
+            $counts = array_fill_keys($labels, 0);
+            foreach ($all_answers as $row) {
+                foreach (explode(', ', $row['answer_text']) as $part) {
+                    $part = trim($part);
+                    if ($part !== '' && isset($counts[$part])) {
+                        $counts[$part]++;
+                    }
+                }
+            }
+            $sum = array_sum($counts);
+            ?>
+
+            <?php foreach ($counts as $label => $count): ?>
+                <?php $p = $sum > 0 ? round(($count / $sum) * 100) : 0; ?>
+                <div class="chart-row">
+                    <div class="chart-label">
+                        <span><?php echo e($label); ?><?php echo $q['question_type'] === 'rating' ? ' &#9733;' : ''; ?></span>
+                        <span><?php echo $count; ?> (<?php echo $p; ?>%)</span>
+                    </div>
+                    <div class="chart-bar"><span data-percent="<?php echo $p; ?>" style="width:<?php echo $p; ?>%"></span></div>
+                </div>
+            <?php endforeach; ?>
+
+        <?php else: ?>
+            <?php
+            $texts = db_all(
+                'SELECT a.answer_text FROM answers a
+                   JOIN responses r ON r.id = a.response_id
+                  WHERE a.question_id = ? AND r.survey_id = ? AND a.answer_text <> "" LIMIT 20',
+                [$q['id'], $survey_id]
+            );
+            ?>
+            <?php if (!$texts): ?>
+                <p class="text-muted small">No text answers yet.</p>
+            <?php else: ?>
+                <ul>
+                    <?php foreach ($texts as $t): ?>
+                        <li class="small"><?php echo e($t['answer_text']); ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
+        <?php endif; ?>
+    </div>
+<?php endforeach; ?>
+
+<h2>Individual Responses</h2>
+<?php if (!$responses): ?>
+    <div class="card text-muted">No responses yet.</div>
+<?php else: ?>
+    <?php foreach ($responses as $r): ?>
+        <div class="card">
+            <div class="row space-between">
+                <strong><?php echo e($r['full_name']); ?></strong>
+                <span class="small text-muted"><?php echo nice_date($r['submitted_at']); ?></span>
             </div>
-            <div class="chart-bar"><span data-percent="42" style="width:42%"></span></div>
+            <table class="table">
+                <?php foreach ($questions as $q): ?>
+                    <?php $a = db_one('SELECT answer_text FROM answers WHERE response_id = ? AND question_id = ?', [$r['id'], $q['id']]); ?>
+                    <tr>
+                        <th style="width:40%"><?php echo e($q['question_text']); ?></th>
+                        <td><?php echo $a && $a['answer_text'] !== '' ? e($a['answer_text']) : '<span class="text-muted">(no answer)</span>'; ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
         </div>
-        <div class="chart-row">
-            <div class="chart-label">
-                <span>Library</span>
-                <span>4 (33%)</span>
-            </div>
-            <div class="chart-bar"><span data-percent="33" style="width:33%"></span></div>
-        </div>
-        <div class="chart-row">
-            <div class="chart-label">
-                <span>Campus</span>
-                <span>2 (17%)</span>
-            </div>
-            <div class="chart-bar"><span data-percent="17" style="width:17%"></span></div>
-        </div>
-        <div class="chart-row">
-            <div class="chart-label">
-                <span>Other</span>
-                <span>1 (8%)</span>
-            </div>
-            <div class="chart-bar"><span data-percent="8" style="width:8%"></span></div>
-        </div>
-</div>
+    <?php endforeach; ?>
+<?php endif; ?>
+
+<script src="<?php echo BASE_URL; ?>/assets/js/charts.js"></script>
