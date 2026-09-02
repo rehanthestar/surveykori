@@ -1,5 +1,5 @@
 
-            <h1>Welcome, <?php echo e($user['name']); ?></h1>
+            <h1>Welcome, <?php echo e($user['full_name']); ?></h1>
             <p class="text-muted"> <?php echo e(ucfirst($user['user_type'])) ?> &middot; 
                 <?php echo e($user['department']); ?>, <?php echo e($user['university']); ?></p>
 
@@ -137,10 +137,10 @@
 
             <div class="card">
                 <h3>recent notification</h3>
-                <?php if (!$recent_notification): ?>
+                <?php if (!$recent_notifications): ?>
                     <p class="text-muted small">You have not any notification yet.</p>
                 <?php else: ?>
-                    <?php foreach ($recent_notification as $n): ?>
+                    <?php foreach ($recent_notifications as $n): ?>
                         <div class="notif-card <?php echo $n['is_read'] ? '' : 'unread'; ?>">
                             <span><?php echo e($n['message']); ?></span>
                             <span class="small text-muted"><?php echo nice_date($n['created_at']); ?></span>
