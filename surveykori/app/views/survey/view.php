@@ -5,7 +5,7 @@
             <span class="badge badge-cat"><?php echo e($survey['category']); ?></span>
         </p>
         <div class="card" style="max-width:700px">
-            <p><?php echo e($survey['description']); ?></p>
+            <p><?php echo nl2br(e($survey['description'])); ?></p>
             <table class="table">
                 <tr><th>Creator</th><td><?php echo e($survey['full_name']); ?></td></tr>
                 <tr><th>Questions</th><td><?php echo $count; ?></td></tr>
@@ -17,12 +17,12 @@
             <?php if ($is_mine): ?>
                 <div class="alert alert-info mt">This is your own survey.</div>
                 <a class="btn btn-outline" href="<?php echo BASE_URL; ?>/survey/results.php?id=<?php echo $survey_id; ?>">View Results</a>
-            <?php endif ($already): ?>
+            <?php elseif ($already): ?>
                 <div class="alert alert-success mt">You have already answered this survey.</div>
             <?php elseif ($survey['status'] !== 'active'): ?>
                 <div class="alert alert-warning mt">This survey is not accepting responses.</div>
-            <?php endif; ?>
-            <a class="btn btn-primary mt" href="<?php echo BASE_URL; ?>/survey/take.php?id=<?php echo $survey_id; ?>">Take Survey</a>
+            <?php else: ?>
+                <a class="btn btn-primary mt" href="<?php echo BASE_URL; ?>/survey/take.php?id=<?php echo $survey_id; ?>">Take Survey</a>
            <?php endif; ?>
         </div>
         
