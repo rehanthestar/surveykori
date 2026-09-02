@@ -1,7 +1,8 @@
 
                 <h1><?php echo e($survey['title']); ?></h1>
-                <p class="text-muted"><?php echo e($survey['description']); ?></p>
-                <p class="small text-muted">By <?php echo e($survey['full_name']); ?> &middot; Reward <?php echo (int)$survey['reward_per_response']; ?> points</p>
+                <p class="text-muted"><?php echo nl2br($survey['description']); ?></p>
+                <p class="small text-muted">By <?php echo e($survey['full_name']); ?> &middot;
+                     Reward <?php echo (int)$survey['reward_per_response']; ?> points</p>
 
                 <div class="card">
                     <div class="row space-between">
