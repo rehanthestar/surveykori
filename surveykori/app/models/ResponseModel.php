@@ -20,3 +20,16 @@ function response_answer($response_id, $question_id)
         [$response_id, $question_id]);
 }
 
+function create_response($survey_id, $user_id, $points)
+{
+    global $pdo;
+    db_run('INSERT INTO responses (survey_id, user_id, earned_points) VALUES (?, ?, ?)',
+        [$survey_id, $user_id, $points]);
+    return (int)$pdo->lastInsertId();
+}
+
+function save_answer($response_id, $question_id, $text)
+{
+    db_run('INSERT INTO answers (response_id, question_id, answer_text) VALUES (?, ?, ?)',
+        [$response_id, $question_id, $text]);
+}
