@@ -1,22 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Admin Login | Survey Kori</title>
-<link rel="stylesheet" href="../assets/css/style.css">
-<link rel="stylesheet" href="../assets/css/components.css">
-<link rel="stylesheet" href="../assets/css/responsive.css">
-</head>
-<body>
 <div class="auth-wrap">
     <div class="card auth-card" style="max-width:460px;margin:40px auto">
         <h1>Admin Login</h1>
         <p class="text-muted small">Survey Kori administration panel</p>
 
-        <form action="index.html">
+        <?php if ($error): ?>
+            <div class="alert alert-error"><?php echo e($error); ?></div>
+        <?php endif; ?>
+
+        <form method="post">
             <label class="label">Admin Email</label>
-            <input class="input" type="email" name="email" required>
+            <input class="input" type="email" name="email" required
+                   value="<?php echo e($_POST['email'] ?? ''); ?>">
 
             <label class="label">Password</label>
             <input class="input" type="password" name="password" required>
@@ -25,9 +19,7 @@
         </form>
 
         <p class="small text-muted mt">
-            Not an admin? <a href="../login.html">User login</a>
+            Not an admin? <a href="<?php echo BASE_URL; ?>/login.php">User login</a>
         </p>
     </div>
 </div>
-</body>
-</html>
