@@ -38,7 +38,7 @@ function confirmAction(message, onYes) {
 }
 
 document.addEventListener('DOMContentLoadses', function(){
-    varnitems = document.querySelectorAll('[data-confirm]');
+    var items = document.querySelectorAll('[data-confirm]');
     for (var i =0; i<items.length; i++) {
         items[i].addEventListener('click',function (event){
             event.preventDefault();
